@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <style>
+        .box {
+            display: flex;
+        }
+
+        .btn {
+            margin: 5px;
+            padding: 0px;
+
+            border-radius: 30px;
+            font-size: 3em;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+            background-color: #9ec34b;
+            border-left: 0;
+            border-right: 5px solid #84a01f;
+            border-top: 0;
+            border-bottom: 10px solid #84a01f;
+        }
+
+        .btn:active {
+            transform: translateY(4px);
+            border-bottom: none;
+        }
+
+        .power {
+            width: 590px;
+            height: 190px;
+        }
+
+        .channel {
+            width: 190px;
+            height: 190px;
+        }
+
+        .aaa {
+            font-size: 3em;
+            text-align: center;
+            margin: 5px;
+            padding: 0px;
+            width: 190px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <button type="button" class="btn power" onclick="pushRemocon('SHARP_TV_POWER')">POWER</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_INPUT')">Input</button>
+        </div>
+        <div class="box">
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL01')">1</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL02')">2</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL03')">3</button>
+        </div>
+        <div class="box">
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL04')">4</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL05')">5</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL06')">6</button>
+        </div>
+        <div class="box">
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL07')">7</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL08')">8</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL09')">9</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_VOLUMEUP')">＋<br />音量</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL_UP')">▲<br />選局</button>
+        </div>
+        <div class="box">
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL10')">10</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL11')">11</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL12')">12</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_VOLUMEDOWN')">音量<br>ー</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_CHANNEL_DOWN')">選局<br>▼</button>
+        </div>
+        <div class="box">
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_SCHEDULE')">番組表</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_ARROW_UP')">▲</button>
+            <button type="button" class="btn channel">-</button>
+        </div>
+        <div class=" box">
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_ARROW_LEFT')">◀︎</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_OK')">OK</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_ARROW_RIGHT')">▶︎</button>
+        </div>
+        <div class="box">
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_EXIT')">終了</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_ARROW_DOWN')">▼</button>
+            <button type="button" class="btn channel" onclick="pushRemocon('SHARP_TV_BACK')">戻る</button>
+        </div>
+    </div>
+    <script type=" text/javascript">
+                function pushRemocon(btnid) {
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", `send_ir_data?btnid=`+btnid);
+                xhr.send();
+                }
+                </script>
+</body>
+
+</html>
